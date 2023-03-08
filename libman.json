@@ -4,16 +4,24 @@
   "libraries": [
     {
       "library": "jquery@3.6.3",
-      "destination": "wwwroot/jquery/"
+      "destination": "wwwroot/jquery/",
+      "files": [
+        "jquery.min.js"
+      ]
     },
     {
       "library": "jquery-validate@1.19.5",
-      "destination": "wwwroot/jquery/jquery-validate/"
+      "destination": "wwwroot/jquery/",
+      "files": [
+        "jquery.validate.min.js"
+      ]
     },
     {
-      "provider": "cdnjs",
       "library": "jquery-validation-unobtrusive@4.0.0",
-      "destination": "wwwroot/jquery/jquery-validation-unobtrusive/"
+      "destination": "wwwroot/jquery/",
+      "files": [
+        "jquery.validate.unobtrusive.min.js"
+      ]
     }
   ]
 }
