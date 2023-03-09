@@ -5,7 +5,12 @@ namespace EmployeesMvc.Controllers
 {
     public class HomeController : Controller
     {
-        static DataService dataService = new();
+        IDataService dataService;
+
+        public HomeController(IDataService dataService)
+        {
+            this.dataService = dataService;
+        }
 
         [HttpGet("/")]
         public IActionResult Index()
