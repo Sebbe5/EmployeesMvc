@@ -8,6 +8,8 @@ namespace EmployeesMvc.Models
 
         public int? CompanyId { get; set; }
 
+        public Company? Company { get; set; }
+
         [Required(ErrorMessage = "Name is required")]
         public string Name { get; set; }
 

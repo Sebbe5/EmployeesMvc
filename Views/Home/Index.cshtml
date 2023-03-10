@@ -5,7 +5,7 @@
 <div>
     @foreach (var item in Model)
     {
-        @item.Name
+        <span>@item.Name is with @item.Company?.Name</span>
         <br/>
     }
     <a asp-controller="Home" asp-action="CreateEmployee">Add Employee</a>

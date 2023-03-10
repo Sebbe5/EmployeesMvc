@@ -13,10 +13,9 @@ namespace EmployeesMvc.Controllers
         }
 
         [HttpGet("/")]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            
-            return View(dataService.GetAll());
+            return View(await dataService.GetAll());
         }
 
         [HttpGet("/create")]
@@ -27,13 +26,13 @@ namespace EmployeesMvc.Controllers
         }
 
         [HttpPost("/create")]
-        public IActionResult CreateEmployee(Employee employee)
+        public async Task<IActionResult> CreateEmployee(Employee employee)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
-            dataService.AddEmployee(employee);
+            await dataService.AddEmployee(employee);
             return RedirectToAction(nameof(Index));
         }
     }

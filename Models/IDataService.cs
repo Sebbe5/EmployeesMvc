@@ -2,9 +2,9 @@
 {
     public interface IDataService
     {
-        void AddEmployee(Employee employee);
-        Employee[] GetAll();
+        Task AddEmployee(Employee employee);
+        Task<Employee[]> GetAll();
 
-        Employee GetByid(int id);
+        Task<Employee> GetByid(int id);
     }
 }

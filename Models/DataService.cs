@@ -1,4 +1,6 @@
-﻿namespace EmployeesMvc.Models
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace EmployeesMvc.Models
 {
     public class DataService : IDataService
     {
@@ -15,20 +17,20 @@
         //    new Employee { Id = 3, Name = "Berra", Email = "Berrasemail@email.com"}
         //};
 
-        public void AddEmployee(Employee employee)
+        public async Task AddEmployee(Employee employee)
         {
-            context.Employees.Add(employee);
-            context.SaveChanges();
+            await context.Employees.AddAsync(employee);
+            await context.SaveChangesAsync();
         }
 
-        public Employee[] GetAll()
+        public async Task<Employee[]> GetAll()
         {
-            return context.Employees.ToArray();
+            return await context.Employees.Include(e => e.Company).ToArrayAsync();
         }
 
-        public Employee GetByid(int id)
+        public async Task<Employee> GetByid(int id)
         {
-            return context.Employees.SingleOrDefault(x => x.Id == id);
+            return await context.Employees.SingleOrDefaultAsync(x => x.Id == id);
         }
 
     }
