@@ -11,5 +11,6 @@ namespace EmployeesMvc.Models
         }
         // Exponerar våra databas-modeller via properties av typen DbSet<T> 
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Company> Companies { get; set; }
     }
 }

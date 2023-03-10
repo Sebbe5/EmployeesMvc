@@ -5,7 +5,8 @@
 <div>
     @foreach (var item in Model)
     {
-        @item.Name
+        
+        <p>@item.Name</p>
         <br/>
     }
     <a asp-controller="Home" asp-action="CreateEmployee">Add Employee</a>
