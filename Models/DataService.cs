@@ -18,6 +18,7 @@
         public void AddEmployee(Employee employee)
         {
             context.Employees.Add(employee);
+            context.SaveChanges();
         }
 
         public Employee[] GetAll()
