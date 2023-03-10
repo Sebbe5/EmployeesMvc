@@ -2,11 +2,18 @@
 @{
     ViewBag.Title = "Index";
 }
-<div>
+<div class="mb-3">
+    <ul class="list-group list-group-horizontal ">
+        <li class="list-group-item w-25 m-0 list-group-item-dark">Name</li>
+        <li class="list-group-item w-25 m-0 list-group-item-dark">Company</li>
+    </ul>
     @foreach (var item in Model)
     {
-        <span>@item.Name is with @item.Company?.Name</span>
-        <br/>
+        <ul class="list-group list-group-horizontal">
+            <li class="list-group-item w-25 m-0">@item.Name</li>
+            <li class="list-group-item w-25 m-0"> @item.Company?.Name</li>
+        </ul>
+
     }
-    <a asp-controller="Home" asp-action="CreateEmployee">Add Employee</a>
 </div>
+<a asp-controller="Home" asp-action="CreateEmployee">Add Employee</a>
