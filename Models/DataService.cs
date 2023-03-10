@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EmployeesMvc.Views.Home;
+using Microsoft.EntityFrameworkCore;
 
 namespace EmployeesMvc.Models
 {
@@ -17,15 +18,24 @@ namespace EmployeesMvc.Models
         //    new Employee { Id = 3, Name = "Berra", Email = "Berrasemail@email.com"}
         //};
 
-        public async Task AddEmployee(Employee employee)
+        public async Task AddEmployee(CreateEmployeeVM employee)
         {
-            await context.Employees.AddAsync(employee);
+            context.Employees
+                .Add(new Employee
+                {
+                    Name = employee.Name,
+                    Email = employee.Email,
+                });
             await context.SaveChangesAsync();
         }
 
-        public async Task<Employee[]> GetAll()
+        public async Task<IndexVM[]> GetAll()
         {
-            return await context.Employees.Include(e => e.Company).ToArrayAsync();
+            return await context.Employees.Select(e => new IndexVM
+            {
+                Name = e.Name,
+                Email = e.Email,
+            }).ToArrayAsync();
         }
 
         public async Task<Employee> GetByid(int id)

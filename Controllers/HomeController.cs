@@ -1,4 +1,5 @@
 ﻿using EmployeesMvc.Models;
+using EmployeesMvc.Views.Home;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeesMvc.Controllers
@@ -26,7 +27,7 @@ namespace EmployeesMvc.Controllers
         }
 
         [HttpPost("/create")]
-        public async Task<IActionResult> CreateEmployee(Employee employee)
+        public async Task<IActionResult> CreateEmployee(CreateEmployeeVM employee)
         {
             if (!ModelState.IsValid)
             {

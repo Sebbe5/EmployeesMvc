@@ -1,17 +1,17 @@
-﻿@model Employee[]
+﻿@model IndexVM[];
 @{
     ViewBag.Title = "Index";
 }
 <div class="mb-3">
     <ul class="list-group list-group-horizontal ">
         <li class="list-group-item w-25 m-0 list-group-item-dark">Name</li>
-        <li class="list-group-item w-25 m-0 list-group-item-dark">Company</li>
+        <li class="list-group-item w-25 m-0 list-group-item-dark">Email</li>
     </ul>
     @foreach (var item in Model)
     {
         <ul class="list-group list-group-horizontal">
             <li class="list-group-item w-25 m-0">@item.Name</li>
-            <li class="list-group-item w-25 m-0"> @item.Company?.Name</li>
+            <li class="list-group-item w-25 m-0"> @item.Email</li>
         </ul>
 
     }
